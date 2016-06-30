@@ -7,3 +7,5 @@
 /.project
 src/main/resources/resources/vendor/
 src/main/resources/properties/version.properties
+.classpath
+.project
