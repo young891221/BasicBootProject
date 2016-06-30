@@ -1,28 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>프로젝트명</title>
-    
-	<link rel="stylesheet" href="/resources/css/login.css" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Login</title>
+
+<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/cover.css" />
 </head>
-<body class="no-skin">
-	<div class="container-fluid">
-		<div class="layout">
-			<h2> Basic Boot Project </h2>
-			<h3> ${version} </h3>
-			<br>
-			
-			<#-- GOOGLE SIGNIN -->
-			<form id="go_signin" action="/signin/google" method="POST">
-				<input type="hidden" name="scope" value="email profile" />
-				<input type="Image" name="submit button" src="/resources/images/google_login.png" ></input>
-			</form>
-			
+<body>
+	<div class="site-wrapper">
+
+		<div class="site-wrapper-inner">
+
+			<div class="cover-container">
+
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">Cover</h3>
+						<nav>
+							<ul class="nav masthead-nav">
+								<li class="active"><a href="#">Home</a></li>
+								<li><a href="#">Features</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+				<div class="inner cover">
+					<h1 class="cover-heading">Basic Project</h1>
+					<p class="lead">Hello! It's a my own Spring Boot Project.</p>
+					<p class="lead">
+						<a href="${apiUrl}"
+							class="btn btn-lg btn-default">Sing in Google</a>
+					</p>
+				</div>
+
+				<div class="mastfoot">
+					<div class="inner">
+						<p>
+							Cover template for <a href="http://getbootstrap.com">Bootstrap</a>,
+							by <a href="https://twitter.com/mdo">@mdo</a>.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
 		</div>
+
 	</div>
+
+	<script src="/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

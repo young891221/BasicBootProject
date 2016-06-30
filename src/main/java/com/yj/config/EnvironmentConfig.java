@@ -19,7 +19,8 @@ public class EnvironmentConfig {
             ignoreResourceNotFound = true,
             value = {
                     "classpath:/properties/datasource.properties",
-                    "classpath:/properties/version.properties"
+                    "classpath:/properties/version.properties",
+                    "classpath:/properties/googleApi.properties"
             }
     )
     public static class ProductionProperties {
