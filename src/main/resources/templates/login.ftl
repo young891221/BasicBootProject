@@ -37,13 +37,15 @@
 						<a href="${apiUrl}"
 							class="btn btn-lg btn-default">Sing in Google</a>
 					</p>
+					<#if state?has_content>
+						<p class="lead">${state}</p>
+					</#if>
 				</div>
 
 				<div class="mastfoot">
 					<div class="inner">
 						<p>
-							Cover template for <a href="http://getbootstrap.com">Bootstrap</a>,
-							by <a href="https://twitter.com/mdo">@mdo</a>.
+							Made By <a href="https://github.com/young891221/BasicBootProject">@yj</a>.
 						</p>
 					</div>
 				</div>

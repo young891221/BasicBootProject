@@ -72,7 +72,7 @@ dependencies {
     //db(hibernate,orm,tx)
     compile("org.springframework:spring-tx")
 	compile("org.springframework:spring-orm")
-    compile('org.hibernate:hibernate-core:4.3.11.Final')
+    compile('org.hibernate:hibernate-core:4.1.9.Final')
     compile("mysql:mysql-connector-java")
     compile("org.apache.tomcat:tomcat-jdbc:8.0.28")
     
@@ -99,6 +99,8 @@ dependencies {
 	compile("joda-time:joda-time")
 	compile("com.fasterxml.jackson.datatype:jackson-datatype-joda:2.4.0")
 	compile("com.fasterxml.jackson.datatype:jackson-datatype-hibernate4:2.4.0")
+	compile group: 'org.jadira.usertype', name: 'usertype.core', version: '3.0.0.CR1'
+	
 	
 	//google
 	 compile("com.google.apis:google-api-services-oauth2:v1-rev117-1.22.0")

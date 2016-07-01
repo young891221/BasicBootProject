@@ -3,5 +3,7 @@ package com.yj.service;
 import com.yj.pojo.GoogleUser;
 
 public interface MemberService {
-	public String insertGoogleMember(GoogleUser googleUser);
+	public void insertGoogleMember(GoogleUser googleUser);
+	
+	public boolean isEmail(String email);
 }
