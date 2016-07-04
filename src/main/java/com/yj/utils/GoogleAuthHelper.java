@@ -60,8 +60,7 @@ public class GoogleAuthHelper {
 	  * @Date : 2016. 6. 30.
 	  * @author : Kim YJ
 	  * @comment 설명 : 사용자 정보 호출(JSON방식)
-	  * @param authCode
-	  * @return
+	  * @param response : 리턴된 토큰값
 	  * @throws IOException
 	  */
 	public GoogleUser getUserInfoJson(String authCode) throws IOException {
