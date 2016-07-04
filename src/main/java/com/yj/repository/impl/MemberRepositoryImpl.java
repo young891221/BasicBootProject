@@ -18,7 +18,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 	SessionFactory sessionFactory;
 
 	@Override
-	public void insertGoogleMember(Member member) {
+	public void insertOrUpdateMember(Member member) {
 		sessionFactory.getCurrentSession().saveOrUpdate(member);
 	}
 

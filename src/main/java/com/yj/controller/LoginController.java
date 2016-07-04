@@ -1,8 +1,6 @@
 package com.yj.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,14 +11,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yj.model.Member;
 import com.yj.pojo.GoogleUser;
 import com.yj.service.MemberService;
 import com.yj.utils.GoogleAuthHelper;
 
 @Controller
-public class HomeController {
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+public class LoginController {
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	private Environment env;
 	@Autowired
@@ -30,7 +30,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home() {
-		return "redirect:/login";
+		return "/dashboard";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -75,5 +75,27 @@ public class HomeController {
 		}
 
 		return "redirect:/login";
+	}
+
+	@RequestMapping(value = "/joinView", method = RequestMethod.GET)
+	public String joinView(Member member) {
+		return "join";
+	}
+	
+	@RequestMapping(value = "/singup", method = RequestMethod.GET)
+	public String singup() { //소셜 로그인 이용자 추가 정보 받기
+		
+		return null;
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	public String join(Member member) {
+		try {
+			memberService.join(member);
+		} catch (Exception e) {
+			logger.error("회원 가입 실패 : " + e.getMessage());
+			return "redirect:/accessDenied?state=joinError";
+		}
+		return "dashboard";
 	}
 }

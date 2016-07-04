@@ -16,7 +16,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Autowired MemberRepository memberRepository;
 	
-	private Member generate(GoogleUser googleUser) {
+	private Member memberGenerate(GoogleUser googleUser) {
 		Member member = new Member();
 	    member.setName(googleUser.getName());
 	    member.setEmail(googleUser.getEmail());
@@ -28,12 +28,19 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public void insertGoogleMember(GoogleUser googleUser) {	    
-	    memberRepository.insertGoogleMember(generate(googleUser));
+	    memberRepository.insertOrUpdateMember(memberGenerate(googleUser));
 	}
 
 	@Override
 	public boolean isEmail(String email) {
 		return memberRepository.isEmail(email);
+	}
+
+	@Override
+	public void join(Member member) {
+		member.setInsertDate(new DateTime());
+		member.setIsSns(0);
+		memberRepository.insertOrUpdateMember(member);
 	}
 	
 }
