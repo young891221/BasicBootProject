@@ -1,10 +1,12 @@
 package com.yj.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -23,6 +25,7 @@ public class Member {
 	private String address;
 	private DateTime insertDate;
 	private int isSns;
+	private MemberDetail memberDetail;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -116,5 +119,15 @@ public class Member {
 	public void setIsSns(int isSns) {
 		this.isSns = isSns;
 	}
+
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="member") //MemberDetail's member
+	public MemberDetail getMemberDetail() {
+		return memberDetail;
+	}
+
+	public void setMemberDetail(MemberDetail memberDetail) {
+		this.memberDetail = memberDetail;
+	}
+	
 
 }
