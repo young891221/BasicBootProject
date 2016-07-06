@@ -56,8 +56,8 @@ public class LoginController {
 		}
 		GoogleUser googleUser = googleAuthHelper.getUserInfoJson(authCode);
 		/*
-		 * https://github.com/mdanter/OAuth2v1 전달되어야 하는 url -
-		 * https://www.googleapis.com/oauth2/v1/userinfo?access_token=
+		 * https://github.com/mdanter/OAuth2v1
+		 * 전달되어야 하는 url - https://www.googleapis.com/oauth2/v1/userinfo?access_token=
 		 */
 		if (googleUser == null) {
 			throw new RuntimeException("googleUser is null~!");
@@ -97,4 +97,5 @@ public class LoginController {
 		}
 		return "dashboard";
 	}
+	
 }

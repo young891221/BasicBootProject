@@ -9,4 +9,5 @@ public interface MemberService {
 	public boolean isEmail(String email);
 	
 	public void join(Member member);
+	
 }

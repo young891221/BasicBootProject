@@ -1,5 +1,13 @@
 # BasicBootProject
-###springBoot / Gradle / Security / GoogleOAuth
-###MySQL / Hibernate / JPA / Freemarker / log4j
-###Angularjs / grunt / Bower / jquery / Bootstrap
+========
 
+A Basic Spring Boot Project for providing
+ - Spring Security
+ - Google OAuth2
+ - Hibernate
+ - MySQL
+ - Freemarker
+ - AngularJS
+ - Grunt
+ - Bower
+ - Bootstrap

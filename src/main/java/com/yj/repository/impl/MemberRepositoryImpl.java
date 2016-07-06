@@ -35,7 +35,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 
 	@Override
 	public void insertOrUpdateMemberDetail(MemberDetail memberDetail) {
-			sessionFactory.getCurrentSession().saveOrUpdate(memberDetail);
+		sessionFactory.getCurrentSession().saveOrUpdate(memberDetail);
 	}
 
 }
