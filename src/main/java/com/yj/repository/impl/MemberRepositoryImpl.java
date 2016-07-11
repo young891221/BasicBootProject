@@ -38,4 +38,11 @@ public class MemberRepositoryImpl implements MemberRepository {
 		sessionFactory.getCurrentSession().saveOrUpdate(memberDetail);
 	}
 
+	@Override
+	public Member selectMember(String email) {
+		Member member = (Member) sessionFactory.getCurrentSession().createCriteria(Member.class)
+				.add(Restrictions.eq("email", email)).uniqueResult();
+		return member;
+	}
+
 }

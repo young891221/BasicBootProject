@@ -1,11 +1,15 @@
 package com.yj.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,6 +30,7 @@ public class Member {
 	private DateTime insertDate;
 	private int isSns;
 	private MemberDetail memberDetail;
+	private List<Board> board;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -127,6 +132,15 @@ public class Member {
 
 	public void setMemberDetail(MemberDetail memberDetail) {
 		this.memberDetail = memberDetail;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "editorId")
+	public List<Board> getBoard() {
+		return board;
+	}
+
+	public void setBoard(List<Board> board) {
+		this.board = board;
 	}
 	
 

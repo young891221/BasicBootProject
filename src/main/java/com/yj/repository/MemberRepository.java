@@ -10,4 +10,5 @@ public interface MemberRepository {
 	
 	public void insertOrUpdateMemberDetail(MemberDetail memberDetail);
 	
+	public Member selectMember(String email);
 }
