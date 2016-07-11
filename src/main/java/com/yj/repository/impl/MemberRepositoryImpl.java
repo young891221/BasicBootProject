@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yj.model.Member;
+import com.yj.model.MemberDetail;
 import com.yj.repository.MemberRepository;
 
 @Repository
@@ -30,6 +31,18 @@ public class MemberRepositoryImpl implements MemberRepository {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public void insertOrUpdateMemberDetail(MemberDetail memberDetail) {
+		sessionFactory.getCurrentSession().saveOrUpdate(memberDetail);
+	}
+
+	@Override
+	public Member selectMember(String email) {
+		Member member = (Member) sessionFactory.getCurrentSession().createCriteria(Member.class)
+				.add(Restrictions.eq("email", email)).uniqueResult();
+		return member;
 	}
 
 }

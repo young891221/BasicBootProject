@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yj.model.Member;
+import com.yj.model.MemberDetail;
 import com.yj.pojo.GoogleUser;
 import com.yj.repository.MemberRepository;
 import com.yj.service.MemberService;
@@ -40,7 +41,12 @@ public class MemberServiceImpl implements MemberService{
 	public void join(Member member) {
 		member.setInsertDate(new DateTime());
 		member.setIsSns(0);
+		MemberDetail memberDetail = new MemberDetail();
+		memberDetail.setMember(member);
+		memberDetail.setIsBlack(0);
+		
 		memberRepository.insertOrUpdateMember(member);
+		memberRepository.insertOrUpdateMemberDetail(memberDetail);
 	}
 	
 }

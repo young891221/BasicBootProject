@@ -6,15 +6,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yj.model.Member;
+import com.yj.pojo.GoogleAuthentication;
 import com.yj.pojo.GoogleUser;
+import com.yj.pojo.UserDetailImpl;
 import com.yj.service.MemberService;
 import com.yj.utils.GoogleAuthHelper;
 
@@ -29,7 +33,11 @@ public class LoginController {
 	private GoogleAuthHelper googleAuthHelper;
 
 	@RequestMapping("/")
-	public String home() {
+	public String home(Authentication authentication, Model model) {
+		if(authentication != null) {
+			UserDetailImpl userDetail = (UserDetailImpl) authentication.getPrincipal();
+			model.addAttribute("authenticationName", userDetail.getName());
+		}
 		return "/dashboard";
 	}
 
@@ -47,7 +55,7 @@ public class LoginController {
 		this.login(model);
 		model.addAttribute("state", state);
 
-		return "login";
+		return "/login";
 	}
 
 	@RequestMapping(value = "/authentication", method = RequestMethod.GET)
@@ -57,8 +65,8 @@ public class LoginController {
 		}
 		GoogleUser googleUser = googleAuthHelper.getUserInfoJson(authCode);
 		/*
-		 * https://github.com/mdanter/OAuth2v1 전달되어야 하는 url -
-		 * https://www.googleapis.com/oauth2/v1/userinfo?access_token=
+		 * https://github.com/mdanter/OAuth2v1
+		 * 전달되어야 하는 url - https://www.googleapis.com/oauth2/v1/userinfo?access_token=
 		 */
 		if (googleUser == null) {
 			throw new RuntimeException("googleUser is null~!");
@@ -73,13 +81,15 @@ public class LoginController {
 				return "redirect:/accessDenied?state=googleError";
 			}
 		}
+		UserDetails userDetail = UserDetailImpl.changeUser(googleUser);
+		SecurityContextHolder.getContext().setAuthentication(new GoogleAuthentication(userDetail));
 
-		return "redirect:/login";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/joinView", method = RequestMethod.GET)
 	public String joinView(Member member) {
-		return "join";
+		return "/join";
 	}
 	
 	@RequestMapping(value = "/singup", method = RequestMethod.GET)
@@ -96,6 +106,7 @@ public class LoginController {
 			logger.error("회원 가입 실패 : " + e.getMessage());
 			return "redirect:/accessDenied?state=joinError";
 		}
-		return "dashboard";
+		return "redirect:/login";
 	}
+	
 }
