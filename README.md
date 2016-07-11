@@ -1,5 +1,4 @@
 # BasicBootProject
-========
 
 A Basic Spring Boot Project for providing
  - Spring Security
