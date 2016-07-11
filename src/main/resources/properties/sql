@@ -7,7 +7,7 @@ CREATE TABLE member (
     member_image VARCHAR(100),
     member_phone VARCHAR(100),
     member_address VARCHAR (100),
-    member_insert_date DATE NOT NULL,
+    member_insert_date DATETIME NOT NULL,
     member_is_sns TINYINT(1) NOT NULL);
     
 CREATE TABLE member_detail (
@@ -18,3 +18,17 @@ CREATE TABLE member_detail (
 	member_modify_date DATETIME,
 	member_leave_date DATETIME,
 	member_is_black TINYINT(1));
+	
+CREATE TABLE Board(
+  board_id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+  board_group		VARCHAR(10)     NOT NULL,
+  board_title		VARCHAR(100)    NOT NULL,
+  board_image		VARCHAR(500),
+  board_content		LONGTEXT 	NOT NULL,
+  board_view_count	INT             NOT NULL,
+  board_status		TINYINT,
+  board_insert_date     DATETIME	NOT NULL,
+  board_update_date     DATETIME,
+  board_delete_date     DATETIME,
+  editor_id		INT	    	NOT NULL
+);

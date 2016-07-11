@@ -12,6 +12,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "src/main/resources/webapp/resources/vendor",
     "test",
     "tests"
   ],
