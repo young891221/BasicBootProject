@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Login</title>
-
-<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css" />
+<#import "/layout/layoutTop.ftl" as layout>
+<@layout.layoutTop>
 <link rel="stylesheet" href="/css/cover.css" />
-</head>
-<body>
+
 	<div class="site-wrapper">
 
 		<div class="site-wrapper-inner">
@@ -23,8 +14,9 @@
 						<nav>
 							<ul class="nav masthead-nav">
 								<li class="active"><a href="#">Home</a></li>
-								<li><a href="#">Features</a></li>
+								<li><a href="/board">Board</a></li>
 								<li><a href="#">Contact</a></li>
+								<li><#if authenticationName??>${authenticationName}님 환영합니다</#if></li>
 							</ul>
 						</nav>
 					</div>
@@ -53,7 +45,4 @@
 
 	</div>
 
-	<script src="/vendor/jquery/dist/jquery.min.js"></script>
-	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+</@layout.layoutTop>

@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Login</title>
-
-<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/css/signin.css" />
-<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" />
-</head>
-<body>
+<#import "/layout/layoutTop.ftl" as layout>
+<@layout.layoutTop>
 <div class='container'>
 	<div class='panel panel-primary dialog-panel'>
 		<div class='panel-heading'>
@@ -144,9 +132,4 @@
 	</div>
 </div>
 
-
-
-	<script src="/vendor/jquery/dist/jquery.min.js"></script>
-	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+</@layout.layoutTop>
