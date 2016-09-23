@@ -1,5 +1,6 @@
 package com.yj.model;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,6 +38,7 @@ public class Board {
 	public void setId(int id) {
 		this.id = id;
 	}
+	@Basic
 	@Column(name = "board_group")
 	public String getGroup() {
 		return group;
@@ -44,6 +46,7 @@ public class Board {
 	public void setGroup(String group) {
 		this.group = group;
 	}
+	@Basic
 	@Column(name = "board_title")
 	public String getTitle() {
 		return title;
@@ -51,6 +54,7 @@ public class Board {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	@Basic
 	@Column(name = "board_image")
 	public String getImage() {
 		return image;
@@ -58,6 +62,7 @@ public class Board {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	@Basic
 	@Column(name = "board_content")
 	public String getContent() {
 		return content;
@@ -65,6 +70,7 @@ public class Board {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	@Basic
 	@Column(name = "board_view_count")
 	public int getViewCount() {
 		return viewCount;
@@ -72,6 +78,7 @@ public class Board {
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
+	@Basic
 	@Column(name = "board_status")
 	public int getStatus() {
 		return status;
@@ -79,6 +86,7 @@ public class Board {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	@Basic
 	@Column(name = "board_insert_date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	public DateTime getInsertDate() {
@@ -87,6 +95,7 @@ public class Board {
 	public void setInsertDate(DateTime insertDate) {
 		this.insertDate = insertDate;
 	}
+	@Basic
 	@Column(name = "board_update_date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	public DateTime getUpdateDate() {
@@ -95,6 +104,7 @@ public class Board {
 	public void setUpdateDate(DateTime updateDate) {
 		this.updateDate = updateDate;
 	}
+	@Basic
 	@Column(name = "board_delete_date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	public DateTime getDeleteDate() {

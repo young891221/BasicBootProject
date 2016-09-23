@@ -1,4 +1,4 @@
-<#macro layoutTop>
+<#macro layout>
 <!DOCTYPE html>
 <html>
 <head>

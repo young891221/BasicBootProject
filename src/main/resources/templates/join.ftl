@@ -1,5 +1,5 @@
-<#import "/layout/layoutTop.ftl" as layout>
-<@layout.layoutTop>
+<#import "/layout/layout.ftl" as layout>
+<@layout.layout>
 <div class='container'>
 	<div class='panel panel-primary dialog-panel'>
 		<div class='panel-heading'>
@@ -132,4 +132,4 @@
 	</div>
 </div>
 
-</@layout.layoutTop>
+</@layout.layout>
