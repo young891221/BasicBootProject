@@ -38,7 +38,7 @@ buildscript {
 
 war {
     baseName = "BasicBootProject"
-    version = "1.0.1-" + new Date().format("yyyyMMdd-HHmmss")
+    version = "1.0.0-" + new Date().format("yyyyMMdd-HHmmss")
     exclude("build/**")
     classpath configurations.providedCompile
     ant.propertyfile(
@@ -104,6 +104,10 @@ dependencies {
 	
 	//google
 	 compile("com.google.apis:google-api-services-oauth2:v1-rev117-1.22.0")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.3"
 }
 
 task developerBuild {
