@@ -1,5 +1,5 @@
-<#import "/layout/layoutTop.ftl" as layout>
-<@layout.layoutTop>
+<#import "/layout/layout.ftl" as layout>
+<@layout.layout>
 
 	<#-- body -->
 	<div class="cover-container" ng-controller="boardController as board"> 
@@ -52,4 +52,4 @@
 		</div>
 	</div>
 	
-</@layout.layoutTop>
+</@layout.layout>

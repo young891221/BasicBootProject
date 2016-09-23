@@ -1,5 +1,5 @@
-<#import "/layout/layoutTop.ftl" as layout>
-<@layout.layoutTop>
+<#import "/layout/layout.ftl" as layout>
+<@layout.layout>
 	<div class="container">
 		<form class="form-signin">
 	        <h2 class="form-signin-heading">Please sign in</h2>
@@ -37,4 +37,4 @@
 		</form>
     </div> <!-- /container -->
 
-</@layout.layoutTop>
+</@layout.layout>

@@ -1,5 +1,5 @@
-<#import "/layout/layoutTop.ftl" as layout>
-<@layout.layoutTop>
+<#import "/layout/layout.ftl" as layout>
+<@layout.layout>
 <link rel="stylesheet" href="/css/cover.css" />
 
 	<div class="site-wrapper">
@@ -14,7 +14,7 @@
 						<nav>
 							<ul class="nav masthead-nav">
 								<li class="active"><a href="#">Home</a></li>
-								<li><a href="/board">Board</a></li>
+								<li><a href="/boardForm">Board</a></li>
 								<li><a href="#">Contact</a></li>
 								<li><#if authenticationName??>${authenticationName}님 환영합니다</#if></li>
 							</ul>
@@ -45,4 +45,4 @@
 
 	</div>
 
-</@layout.layoutTop>
+</@layout.layout>
