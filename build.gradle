@@ -110,9 +110,28 @@ task wrapper(type: Wrapper) {
     gradleVersion = "2.3"
 }
 
-task developerBuild {
-    exec {
-        commandLine = ['cmd', '/c', 'grunt']
-        ignoreExitValue = true
+import org.apache.tools.ant.taskdefs.condition.Os
+task grunt(type:Exec) {
+    //The working directory for the process
+    workingDir "./"
+    ignoreExitValue true //Tells whether a non-zero exit value is ignored or exception thrown(default to false)
+
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        //on windows
+        commandLine "cmd", "/c", "grunt"
     }
+    else {
+        //on linux
+        commandLine "grunt"
+    }
+
+    //store the output instead of printing to the console(Defaults to System.out)
+    standardOutput = new ByteArrayOutputStream()
 }
+
+grunt << {
+    println standardOutput.toString("UTF-8")
+}
+
+//의존성 설정
+processResources.dependsOn grunt
