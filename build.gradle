@@ -121,8 +121,8 @@ task grunt(type:Exec) {
         commandLine "cmd", "/c", "grunt"
     }
     else {
-        //on linux
-        commandLine "grunt"
+        //on mac
+        commandLine "/bin/bash", "grunt"
     }
 
     //store the output instead of printing to the console(Defaults to System.out)
